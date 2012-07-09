@@ -1,6 +1,10 @@
-/*
- * To change this template, choose Tools | Templates
- * and open the template in the editor.
+/**
+ * Created with Netbeans IDE 6.5
+ * Author: Arvind Kumar
+ * Date:   7/9/12
+ * Time:   15:18 PM
+ * Description:
+ *
  */
 
 package hotel;
@@ -10,7 +14,7 @@ import javax.ejb.Local;
 
 /**
  *
- * @author Administrator
+ * @author Arvind Kumar
  */
 @Local
 public interface RoomsFacadeLocal {
@@ -24,5 +28,7 @@ public interface RoomsFacadeLocal {
     Rooms find(Object id);
 
     List<Rooms> findAll();
+
+    List<Rooms> findallrooms(Integer hid);
 
 }

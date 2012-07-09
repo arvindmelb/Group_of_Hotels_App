@@ -43,4 +43,9 @@
         <managed-bean-class>hotelappwar.enquiryonhotel</managed-bean-class>
         <managed-bean-scope>request</managed-bean-scope>
     </managed-bean>
+    <managed-bean>
+        <managed-bean-name>tariffenquiry</managed-bean-name>
+        <managed-bean-class>hotelappwar.tariffenquiry</managed-bean-class>
+        <managed-bean-scope>request</managed-bean-scope>
+    </managed-bean>
 </faces-config>

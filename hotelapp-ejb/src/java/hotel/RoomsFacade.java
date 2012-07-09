@@ -1,6 +1,10 @@
-/*
- * To change this template, choose Tools | Templates
- * and open the template in the editor.
+/**
+ * Created with Netbeans IDE 6.5
+ * Author: Arvind Kumar
+ * Date:   7/9/12
+ * Time:   15:18 PM
+ * Description:
+ *
  */
 
 package hotel;
@@ -12,7 +16,7 @@ import javax.persistence.PersistenceContext;
 
 /**
  *
- * @author Administrator
+ * @author Arvind Kumar
  */
 @Stateless
 public class RoomsFacade implements RoomsFacadeLocal {
@@ -38,5 +42,13 @@ public class RoomsFacade implements RoomsFacadeLocal {
     public List<Rooms> findAll() {
         return em.createQuery("select object(o) from Rooms as o").getResultList();
     }
+
+    public List<Rooms> findallrooms(Integer hid) {
+        return em.createQuery("select object(o) from Rooms as o where o.roomsPK.hotelId =" + hid).getResultList();
+
+    }
+
+
+
 
 }

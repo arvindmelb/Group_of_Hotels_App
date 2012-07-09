@@ -8,6 +8,7 @@ package hotelappwar;
 import com.sun.rave.web.ui.appbase.AbstractSessionBean;
 import com.sun.sql.rowset.CachedRowSetXImpl;
 import hotel.Hotels;
+import hotel.Rooms;
 import java.util.ArrayList;
 import java.util.List;
 import javax.faces.FacesException;
@@ -29,6 +30,7 @@ import javax.faces.FacesException;
 
 public class SessionBean1 extends AbstractSessionBean {
     private List<Hotels> listofhotels=new ArrayList<Hotels>();
+    private List<Rooms> listofrooms=new ArrayList<Rooms>();
 
     public List<Hotels> getListofhotels() {
         return listofhotels;
@@ -148,6 +150,14 @@ public class SessionBean1 extends AbstractSessionBean {
      */
     protected ApplicationBean1 getApplicationBean1() {
         return (ApplicationBean1) getBean("ApplicationBean1");
+    }
+
+    public List<Rooms> getListofrooms() {
+        return listofrooms;
+    }
+
+    public void setListofrooms(List<Rooms> listofrooms) {
+        this.listofrooms = listofrooms;
     }
 
 }
