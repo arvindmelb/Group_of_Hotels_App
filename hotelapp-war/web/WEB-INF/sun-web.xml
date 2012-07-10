@@ -6,6 +6,14 @@
     <res-ref-name>jdbc/onlinehotel_MySQL</res-ref-name>
     <jndi-name>jdbc/onlinehotel_MySQL</jndi-name>
   </resource-ref>
+  <resource-ref>
+    <res-ref-name>jms/reservationmessageFactory</res-ref-name>
+    <jndi-name>jms/reservationmessageFactory</jndi-name>
+  </resource-ref>
+  <message-destination-ref>
+    <message-destination-ref-name>jms/reservationmessage</message-destination-ref-name>
+    <jndi-name>jms/reservationmessage</jndi-name>
+  </message-destination-ref>
   <class-loader delegate="true"/>
   <jsp-config>
     <property name="keepgenerated" value="true">

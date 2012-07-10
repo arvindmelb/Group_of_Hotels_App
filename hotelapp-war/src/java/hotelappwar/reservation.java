@@ -30,9 +30,19 @@ import java.util.Date;
 import java.util.List;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import javax.annotation.Resource;
 import javax.ejb.EJB;
 import javax.faces.FacesException;
 import javax.faces.event.ValueChangeEvent;
+import javax.jms.Connection;
+import javax.jms.ConnectionFactory;
+import javax.jms.JMSException;
+import javax.jms.Message;
+import javax.jms.MessageProducer;
+import javax.jms.ObjectMessage;
+import javax.jms.Queue;
+import javax.jms.Session;
+import javax.jms.TextMessage;
 
 /**
  * <p>Page bean that corresponds to a similarly named JSP page.  This
@@ -47,6 +57,10 @@ import javax.faces.event.ValueChangeEvent;
  */
 
 public class reservation extends AbstractPageBean {
+    @Resource(name = "jms/reservationmessage")
+    private Queue reservationmessage;
+    @Resource(name = "jms/reservationmessageFactory")
+    private ConnectionFactory reservationmessageFactory;
     @EJB
     private customerinfoLocal customerinfoBean;
     @EJB
@@ -465,7 +479,7 @@ public class reservation extends AbstractPageBean {
 
             reserv.setHotelId(hotel.getHotelId());
             reserv.setRoomId(roomidalloted);
-			reservationFacade.create(reserv);
+       		//reservationFacade.create(reserv);
 
 			payinfo.setCustomerId(cust.getCustomerId());
 			payinfo.setAmount(Float.parseFloat(amount.getText().toString()));
@@ -487,9 +501,44 @@ public class reservation extends AbstractPageBean {
 			}
 
             paymentinfoFacade.create(payinfo);
+            try {
+                sendJMSMessageToReservationmessage(reserv);
+            } catch (JMSException e) {
+            }
 		}
 	return null;
 	}
+
+    private Message createJMSMessageForjmsReservationmessage(Session session, Object messageData) throws JMSException {
+        // TODO create and populate message to send
+        TextMessage tm = session.createTextMessage();
+        tm.setText(messageData.toString());
+        return tm;
+    }
+
+    private void sendJMSMessageToReservationmessage(Reservation resv) throws JMSException {
+        Connection connection = null;
+        Session session = null;
+        try {
+            connection = reservationmessageFactory.createConnection();
+            session = connection.createSession(false, Session.AUTO_ACKNOWLEDGE);
+            MessageProducer messageProducer = session.createProducer(reservationmessage);
+            ObjectMessage message=session.createObjectMessage();
+            message.setObject(resv);
+            messageProducer.send(message);
+        } finally {
+            if (session != null) {
+                try {
+                    session.close();
+                } catch (JMSException e) {
+                    Logger.getLogger(this.getClass().getName()).log(Level.WARNING, "Cannot close session", e);
+                }
+            }
+            if (connection != null) {
+                connection.close();
+            }
+        }
+    }
 
 
 
