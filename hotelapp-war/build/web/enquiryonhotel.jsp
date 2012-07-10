@@ -2,7 +2,7 @@
 <!-- 
     Document   : enquiryonhotel
     Created on : Jul 8, 2012, 10:50:26 PM
-    Author     : Administrator
+    Author     : Arvind Kumar
 -->
 <jsp:root version="2.1" xmlns:f="http://java.sun.com/jsf/core" xmlns:h="http://java.sun.com/jsf/html" xmlns:jsp="http://java.sun.com/JSP/Page" xmlns:webuijsf="http://www.sun.com/webui/webuijsf">
     <jsp:directive.page contentType="text/html;charset=UTF-8" pageEncoding="UTF-8"/>

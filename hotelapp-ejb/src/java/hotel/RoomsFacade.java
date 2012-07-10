@@ -20,6 +20,7 @@ import javax.persistence.PersistenceContext;
  */
 @Stateless
 public class RoomsFacade implements RoomsFacadeLocal {
+
     @PersistenceContext
     private EntityManager em;
 
@@ -48,7 +49,10 @@ public class RoomsFacade implements RoomsFacadeLocal {
 
     }
 
+    public List<Rooms> findAllRoomids(Integer id1, Object id2) {
+        return em.createQuery("select object(o) from Rooms as o where o.roomsPK.hotelId = " + id1 + " and o.roomType like '" + id2.toString().trim() + "'").getResultList();
 
-
+    }
 
 }
+

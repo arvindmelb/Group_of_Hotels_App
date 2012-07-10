@@ -31,4 +31,6 @@ public interface RoomsFacadeLocal {
 
     List<Rooms> findallrooms(Integer hid);
 
+    List<Rooms> findAllRoomids(Integer id1, Object id2);
+
 }

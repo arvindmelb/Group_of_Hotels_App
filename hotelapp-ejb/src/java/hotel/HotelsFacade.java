@@ -1,8 +1,11 @@
-/*
- * To change this template, choose Tools | Templates
- * and open the template in the editor.
+/**
+ * Created with Netbeans IDE 6.5
+ * Author: Arvind Kumar
+ * Date:   7/9/12
+ * Time:   15:18 PM
+ * Description:
+ *
  */
-
 package hotel;
 
 import java.util.List;
@@ -12,7 +15,7 @@ import javax.persistence.PersistenceContext;
 
 /**
  *
- * @author Administrator
+ * @author Arvind Kumar
  */
 @Stateless
 public class HotelsFacade implements HotelsFacadeLocal {
@@ -41,6 +44,17 @@ public class HotelsFacade implements HotelsFacadeLocal {
 
     public Hotels findonname(Object name) {
         return (Hotels) em.createNamedQuery("Hotels.findByHotelName").setParameter("hotelName", name).getSingleResult();
+
+    }
+
+    public Hotels findid(Object id) {
+         return (Hotels) em.createNamedQuery("Hotels.findByHotelName").setParameter("hotelName", id).getSingleResult();
+
+    }
+
+     public Hotels findonid(Object hid) {
+        return (Hotels) em.createNamedQuery("Hotels.findByHotelId").setParameter("hotelId", hid).getSingleResult();
+
     }
 
 }
