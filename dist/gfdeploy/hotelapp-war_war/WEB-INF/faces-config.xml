@@ -53,4 +53,9 @@
         <managed-bean-class>hotelappwar.reservation</managed-bean-class>
         <managed-bean-scope>request</managed-bean-scope>
     </managed-bean>
+    <managed-bean>
+        <managed-bean-name>_header</managed-bean-name>
+        <managed-bean-class>hotelappwar.header</managed-bean-class>
+        <managed-bean-scope>request</managed-bean-scope>
+    </managed-bean>
 </faces-config>

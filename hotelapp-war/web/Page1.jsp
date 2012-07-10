@@ -14,8 +14,9 @@
                 </webuijsf:head>
                 <webuijsf:body id="body1" style="-rave-layout: grid">
                     <webuijsf:form id="form1">
-                        <webuijsf:button actionExpression="#{Page1.listofhotels_action}" binding="#{Page1.listofhotels}" id="listofhotels"
-                            style="left: 335px; top: 288px; position: absolute; width: 72px" text="List of Hotels"/>
+                        <div style="position:absolute; left:0px; top:0px">
+                            <jsp:directive.include file="header.jspf"/>
+                        </div>
                     </webuijsf:form>
                 </webuijsf:body>
             </webuijsf:html>

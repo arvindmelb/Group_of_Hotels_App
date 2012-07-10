@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- 
+    Document   : header
+    Created on : Jan 13, 2009, 3:10:51 PM
+    Author     : Arvind Kumar
+-->
+<div style="background-color: rgb(255, 255, 255); height: 100px; width: 800px; -rave-layout: grid" xmlns:f="http://java.sun.com/jsf/core"
+    xmlns:h="http://java.sun.com/jsf/html" xmlns:webuijsf="http://www.sun.com/webui/webuijsf">
+    <f:subview id="header">
+        <h:panelGrid bgcolor="#aabbcc" id="gridPanel1" style="height: 120px; left: 0px; top: -24px; position: absolute" width="800">
+            <webuijsf:image align="right" height="65" id="image1" url="/images/hotel.jpg" width="80"/>
+        </h:panelGrid>
+        <webuijsf:staticText id="staticText2"
+            style="background-color: rgb(170, 187, 204); color: navy; font-family: 'Arial','Helvetica',sans-serif; font-size: 36px; font-weight: bold; left: 48px; top: 24px; position: absolute" text="Chirag Group of Hotels"/>
+    </f:subview>
+</div>
