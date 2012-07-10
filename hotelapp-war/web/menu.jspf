@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+    Document   : header
+    Created on : July 10, 2012, 19:10:51 PM
+    Author     : Arvind Kumar
+-->
+<div style="-rave-layout: grid; width: 170px; height: 320px" xmlns:f="http://java.sun.com/jsf/core" xmlns:h="http://java.sun.com/jsf/html" xmlns:webuijsf="http://www.sun.com/webui/webuijsf">
+    <f:subview id="menu">
+        <h:panelGrid bgcolor="#aabbcc" id="gridPanel1" style="height: 312px; left: 0px; top: 0px; position: absolute" width="168">
+            <webuijsf:button actionExpression="#{menu.home_action}" binding="#{menu.home}" id="home"
+                style="color: navy; font-family: Arial,Helvetica,sans-serif; font-size: 14px; font-weight: bold; height: 25px; width: 160px" text="Home"/>
+            <webuijsf:button actionExpression="#{menu.listofhotels_action}" binding="#{menu.listofhotels}" id="listofhotels"
+                style="color: navy; font-family: Arial,Helvetica,sans-serif; font-size: 14px; font-weight: bold; height: 25px; width: 160px" text="List of All Hotels"/>
+            <webuijsf:button actionExpression="#{menu.enqhotel_action}" binding="#{menu.enqhotel}" id="enqhotel"
+                style="color: navy; font-family: Arial,Helvetica,sans-serif; font-size: 14px; font-weight: bold; height: 25px; width: 160px" text="Enquiry of a Hotel"/>
+            <webuijsf:button actionExpression="#{menu.tarifenq_action}" binding="#{menu.tarifenq}" id="tarifenq"
+                style="color: navy; font-family: Arial,Helvetica,sans-serif; font-size: 14px; font-weight: bold; height: 25px; width: 160px" text="Tariff Enquiry"/>
+            <webuijsf:button actionExpression="#{menu.reserve_action}" binding="#{menu.reserve}" id="reserve"
+                style="color: navy; font-family: Arial,Helvetica,sans-serif; font-size: 14px; font-weight: bold; height: 25px; width: 160px" text="Reservation"/>
+            <webuijsf:button actionExpression="#{menu.contactus_action}" binding="#{menu.contactus}" id="contactus"
+                style="color: navy; font-family: Arial,Helvetica,sans-serif; font-size: 14px; font-weight: bold; height: 25px; width: 160px" text="Contact Us"/>
+        </h:panelGrid>
+    </f:subview>
+</div>
